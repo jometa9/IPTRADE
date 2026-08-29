@@ -26,6 +26,11 @@ export const faqsData: FAQItem[] = [
     answer: `Yes. You can copy between MT4, MT5, and cTrader. We handle symbol mapping, prefix/suffix, and lot size so you can match different broker naming and contract sizes.`,
   },
   {
+    id: "ctrader-credentials",
+    question: "Do I need my own cTrader API credentials?",
+    answer: `Yes, for cTrader accounts. IPTRADE ships without embedded cTrader credentials, so you create a free Open API application at openapi.ctrader.com, set its redirect URL to https://jometa9.github.io/IPTRADE/auth/local/callback and paste the Client ID and Secret into Configuration → cTrader API in the app. It takes about 2 minutes, once, and the credentials are encrypted on your machine only. MetaTrader 4 and 5 accounts don't need this.`,
+  },
+  {
     id: "latency-slippage",
     question: "What about latency and slippage?",
     answer: `Copying is local and in real time, so latency is zero. Slippage depends on your broker and market conditions; the copier sends the order as soon as the master trade is detected.`,

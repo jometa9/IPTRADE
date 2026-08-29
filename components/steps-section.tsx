@@ -92,11 +92,17 @@ export function StepsSection() {
                 <h3 className="text-4xl text-white">Connect your accounts</h3>
               </div>
               <p className="text-lg text-white mb-2">Choose your platform</p>
-              <p className="text-gray-200 mb-8">
+              <p className="text-gray-200 mb-4">
                 Link your trading accounts on MetaTrader 4, MetaTrader 5,
                 or cTrader. IPTRADE guides you through a simple authorization
                 process—just follow the prompts, and your accounts will appear
                 ready to configure.
+              </p>
+              <p className="text-gray-200 mb-8">
+                For cTrader you use your own free Open API application: create
+                it once at openapi.ctrader.com and paste its Client ID and
+                Secret into Configuration → cTrader API. They stay encrypted on
+                your machine. MetaTrader accounts need no keys.
               </p>
             </div>
           </div>

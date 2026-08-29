@@ -5,6 +5,7 @@
 3. [Installation and demo](#installation-and-demo)
    1. [Download and install the app](#step-1-download-and-install-the-app)
       - [Set up MetaTrader accounts via Expert Advisor](#set-up-metatrader-accounts-via-expert-advisor)
+      - [Connect your cTrader Open API app](#connect-your-ctrader-open-api-app)
       - [Set up cTrader accounts](#set-up-ctrader-accounts)
    2. [Configure and start trading](#step-2-configure-and-start-trading)
 4. [Trade copier configuration](#trade-copier-configuration)
@@ -126,6 +127,16 @@ Accounts appear as **Pending** to configure when linked to the app.
 
 ![IPTRADE Docs image](/assets/docs/13.png)
 
+#### Connect your cTrader Open API app
+
+IPTRADE does not ship embedded cTrader API credentials, so cTrader accounts need your own cTrader Open API application. It is free and you only do it once (about 2 minutes).
+
+1. Sign in at [openapi.ctrader.com](https://openapi.ctrader.com) and create an application.
+2. Set its **Redirect URL** to `https://jometa9.github.io/IPTRADE/auth/local/callback`. That page only forwards the authorization code back into the app through the `iptrade://` deep link; it stores nothing.
+3. In the IPTRADE app open **Configuration (gear icon) → cTrader API** and paste the application's **Client ID** and **Client Secret**, then click **Save credentials**. They are encrypted and stored on your machine only — they are never sent anywhere else.
+
+Until credentials are saved, **Add cTrader accounts** returns *"cTrader app credentials not configured"*. MetaTrader accounts do not need this step.
+
 #### Set up cTrader accounts
 
 1. In the IPTRADE app, click **Add cTrader accounts** to open the cTrader authorization page in your browser.
@@ -218,6 +229,10 @@ You can customize the app interface and trading display from **Configuration** (
 - **Open orders** — Show or hide the open orders column in the account list.
 - **Slave config** — Show or hide the column that displays the slave configuration (size mode, multiplier or fixed lot, symbol translation, reverse trading, exact match, etc.).
 - **Always show columns** — When enabled, all columns are always visible regardless of window size. When disabled, some columns may be hidden automatically on smaller windows to save space.
+
+#### cTrader API
+
+Where you store the **Client ID** and **Client Secret** of your own cTrader Open API application (see [Connect your cTrader Open API app](#connect-your-ctrader-open-api-app)). Once saved, the section shows **Configured** with the truncated Client ID and a **Replace credentials** button if you ever rotate the application. Credentials are encrypted at rest on this computer; IPTRADE has no server to send them to.
 
 #### Clear all data
 
@@ -537,6 +552,10 @@ Cells with no trades display `—`. Row totals, column totals and the grand tota
 
 When the computer sleeps, network and bots can drop; accounts may go **Offline**. Prefer disabling sleep while running IPTRADE, or use a **Windows VPS** for 24/7. After wake, wait a bit for reconnect; if not, use the steps above.
 
+### cTrader accounts won't link
+
+If **Add cTrader accounts** fails with *"cTrader app credentials not configured"*, save your own Open API Client ID and Secret first in **Configuration → cTrader API**. If the browser authorizes but the app never receives the accounts, check that the application's **Redirect URL** is exactly `https://jometa9.github.io/IPTRADE/auth/local/callback` and that your browser is allowed to open `iptrade://` links.
+
 ### cTrader symbol name missing
 
 Some cTrader brokers don’t expose a reliable symbol name in the feed. Without it, IPTRADE can’t safely translate or match the instrument and the slave may not copy. Prefer instruments with consistent symbol IDs, use **Symbol translation** when you know the mapping, or accept that some symbols may not be copyable.
@@ -607,9 +626,13 @@ Yes. IPTRADE Multi is 100% free—no trials, no caps, no hidden costs. Download 
 
 Honestly, to give back to the community. We built IPTRADE for ourselves first, after trying paid copiers that felt opaque or overpriced for what they actually delivered. Once it worked well, releasing it openly felt like the right call—our way of showing this space isn't only paywalls and recurring fees, and that there's room for serious tools built by traders, for traders. We cover our own infrastructure and updates; no trials, no upsell, no catch.
 
+### Do I need my own cTrader API credentials?
+
+Yes, for cTrader accounts. IPTRADE ships without embedded cTrader credentials, so you create a free application at [openapi.ctrader.com](https://openapi.ctrader.com), set its redirect URL to `https://jometa9.github.io/IPTRADE/auth/local/callback` and paste the Client ID and Secret into **Configuration → cTrader API**. It takes about 2 minutes, once. MetaTrader 4 and 5 accounts don't need it.
+
 ### How difficult is the installation?
 
-Setup usually takes about 5 minutes. You install the app and then the bots on your platforms. The process is guided.
+Setup usually takes about 5 minutes. You install the app and then the bots on your platforms. For cTrader, add about 2 minutes the first time to create your own Open API application and paste its credentials. The process is guided.
 
 ### Can I use IPTRADE on a VPS?
 

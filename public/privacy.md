@@ -23,6 +23,7 @@ IPTRADE Multi is provided **100% free of charge**. We do not process payments or
 - Trading strategies
 - Account balances
 - Broker credentials
+- cTrader Open API credentials (your own Client ID and Secret, stored encrypted on your computer)
 - Any trading data (stays on your computer)
 
 We never collect payment information — the software is free.
