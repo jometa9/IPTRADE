@@ -63,7 +63,7 @@ export const metadata: Metadata = {
       "IPTRADE Multi: local trade copier for MT4, MT5, and cTrader. Runs on your Windows or Mac—single IP, zero data exposure, designed for prop firm IP rules. 100% free for everyone.",
     images: [
       {
-        url: asset("/assets/preview-home.png"),
+        url: "/assets/preview-home.png",
         width: 1200,
         height: 630,
         alt: "IPTRADE – Local trade copier for MT4, MT5, and cTrader",
@@ -75,7 +75,7 @@ export const metadata: Metadata = {
     title: "IPTRADE",
     description:
       "IPTRADE Multi runs on your machine—single IP, zero data exposure, designed for prop firm IP rules. 100% free for everyone. MT4, MT5, cTrader.",
-    images: [asset("/assets/preview-home.png")],
+    images: ["/assets/preview-home.png"],
   },
   robots: {
     index: true,

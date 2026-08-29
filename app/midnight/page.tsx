@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: asset("/assets/midnight/preview.png"),
+        url: "/assets/midnight/preview.png",
         width: 1200,
         height: 630,
         alt: "IPTRADE Mid Night — The history and philosophy of IPTRADE",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     description:
       "The history and philosophy behind IPTRADE — speed, discipline, and the art of perfect execution.",
-    images: [asset("/assets/midnight/preview.png")],
+    images: ["/assets/midnight/preview.png"],
   },
 };
 
