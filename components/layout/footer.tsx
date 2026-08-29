@@ -15,15 +15,6 @@ export function Footer() {
       </p>
 
       <div className="flex flex-wrap space-x-2 text-sm pt-2">
-        <Link
-          href="https://www.instagram.com/iptradecopier"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Instagram"
-          className="text-gray-600"
-        >
-          Instagram
-        </Link>
         <Link href="/legal" aria-label="Legal" className="text-gray-600">
           Legal
         </Link>

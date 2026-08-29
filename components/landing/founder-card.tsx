@@ -1,7 +1,7 @@
 "use client";
 
 import { asset } from "@/lib/asset";
-import { Github, Instagram, Linkedin, Youtube } from "lucide-react";
+import { Github, Linkedin, Youtube } from "lucide-react";
 import { useMemo } from "react";
 
 export function FounderCard() {

@@ -93,7 +93,6 @@ export function StructuredData({ type, data }: StructuredDataProps) {
             "Local trade copier for MT4, MT5, and cTrader. IPTRADE Multi runs on Windows (MT4, MT5, cTrader) and macOS (cTrader). Your machine, single IP, zero data exposure, designed for prop firm IP restrictions.",
           foundingDate: "2025",
           sameAs: [
-            "https://www.instagram.com/iptradecopier",
             "https://www.linkedin.com/company/iptrade",
           ],
         };

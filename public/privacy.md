@@ -66,7 +66,7 @@ You have the right to:
 - Opt-out of marketing communications
 - Withdraw consent
 
-**To exercise rights:** DM [@iptradecopier](https://www.instagram.com/_iptrade) on Instagram or message the founder directly at [joaquinmetayer@gmail.com](mailto:joaquinmetayer@gmail.com).
+**To exercise rights:** Message the founder directly at [joaquinmetayer@gmail.com](mailto:joaquinmetayer@gmail.com).
 
 ---
 

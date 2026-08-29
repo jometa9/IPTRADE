@@ -549,7 +549,7 @@ If none of the steps above resolve your issue, please reach out to us so we can 
 2. Click **Download logs** to save the logs CSV to your machine.
 3. Send us that CSV file together with a short description of what you were doing when the issue happened.
 
-You can share it via any of the channels listed in the [Support](#support) section below — Instagram DM or email work best for attaching the file.
+You can share it via the email listed in the [Support](#support) section below.
 
 ---
 
@@ -627,7 +627,6 @@ Full local trade copying: MT4, MT5, and cTrader support, symbol translation, pre
 
 ## Support
 
-- **Instagram DM:** [@iptradecopier](https://www.instagram.com/_iptrade
 - **Founder (direct):** [joaquinmetayer@gmail.com](mailto:joaquinmetayer@gmail.com)
 - **Website:** [IPTRADE](https://jometa9.github.io/IPTRADE)
 

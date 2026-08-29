@@ -105,7 +105,7 @@ We are not responsible for trading losses, broker or prop firm actions, or any i
 
 ## 11. Dispute Resolution
 
-**Contact us first:** Before any legal action, contact the founder directly at [joaquinmetayer@gmail.com](mailto:joaquinmetayer@gmail.com) or DM [@_iptrade](https://www.instagram.com/_iptrade) on Instagram to resolve disputes.
+**Contact us first:** Before any legal action, contact the founder directly at [joaquinmetayer@gmail.com](mailto:joaquinmetayer@gmail.com) to resolve disputes.
 
 **Arbitration:** If we can't resolve informally, disputes will be resolved by binding arbitration with the American Arbitration Association (AAA), not in court.
 

@@ -6,9 +6,6 @@ We're committed to excellent service. If you have a complaint, we want to hear f
 
 ## How to File a Complaint
 
-### Instagram DM (Recommended)
-DM [@iptradecopier](https://www.instagram.com/_iptrade) on Instagram.
-
 ### Founder (Direct)
 Message the founder directly at [joaquinmetayer@gmail.com](mailto:joaquinmetayer@gmail.com).  
 **Subject:** "Complaint - [Brief Description]"
