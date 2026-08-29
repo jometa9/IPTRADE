@@ -1,3 +1,4 @@
+import { asset } from "@/lib/asset";
 import { LandingHeader } from "@/components/landing/landing-header";
 import { MarkdownRenderer } from "@/components/markdown-renderer";
 import { StructuredData } from "@/components/structured-data";
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
     url: "/documentation",
     type: "website",
     images: [
-      { url: "/assets/preview-home.png", width: 1200, height: 630, alt: "IPTRADE Documentation" },
+      { url: asset("/assets/preview-home.png"), width: 1200, height: 630, alt: "IPTRADE Documentation" },
     ],
   },
   twitter: {

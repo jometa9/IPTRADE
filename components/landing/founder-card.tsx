@@ -1,5 +1,6 @@
 "use client";
 
+import { asset } from "@/lib/asset";
 import { Github, Instagram, Linkedin, Youtube } from "lucide-react";
 import { useMemo } from "react";
 
@@ -58,7 +59,7 @@ export function FounderCard() {
   return (
     <div className="bg-gray-100 rounded-lg p-3 ">
       <img
-        src="/assets/founder4.png"
+        src={asset("/assets/founder4.png")}
         alt="Founder"
         className="w-1/3 object-cover rounded-lg border border-gray-200"
       />

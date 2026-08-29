@@ -1,5 +1,6 @@
 "use client";
 
+import { asset } from "@/lib/asset";
 import { MacOSIcon } from "@/components/icons/macos-icon";
 import { WindowsIcon } from "@/components/icons/windows-icon";
 import { Check, ArrowDownToLine, BlocksIcon } from "lucide-react";
@@ -92,17 +93,17 @@ export function ProductsSection({ variant = "default", demoSide = "right" }: Pro
                 <div className="flex gap-3 flex-col items-start md:gap-3 mb-4">
                   <div className="flex items-center gap-3">
                     <img
-                      src="/assets/metatrader4.png"
+                      src={asset("/assets/metatrader4.png")}
                       alt="MetaTrader 4"
                       className="h-7 grayscale opacity-70 shrink-0"
                     />
                     <img
-                      src="/assets/metatrader5.png"
+                      src={asset("/assets/metatrader5.png")}
                       alt="MetaTrader 5"
                       className="h-7 grayscale opacity-70 shrink-0"
                     />
                     <img
-                      src="/assets/ctrader.svg"
+                      src={asset("/assets/ctrader.svg")}
                       alt="cTrader"
                       className="h-4.5 grayscale opacity-70 shrink-0"
                     />
@@ -175,7 +176,7 @@ export function ProductsSection({ variant = "default", demoSide = "right" }: Pro
                 <p className="text-gray-50 text-8xl"  >瞬写 </p>
               </div>
               <img
-                src={demoImageSrc}
+                src={asset(demoImageSrc)}
                 className="relative z-10 w-full h-full object-cover"
                 onError={() => {
                   setDemoImageSrc("/assets/multi-demo.png");

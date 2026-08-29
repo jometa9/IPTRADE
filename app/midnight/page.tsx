@@ -1,3 +1,4 @@
+import { asset } from "@/lib/asset";
 import { MidnightIntro } from "@/components/midnight-intro";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/assets/midnight/preview.png",
+        url: asset("/assets/midnight/preview.png"),
         width: 1200,
         height: 630,
         alt: "IPTRADE Mid Night — The history and philosophy of IPTRADE",
@@ -25,13 +26,13 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     description:
       "The history and philosophy behind IPTRADE — speed, discipline, and the art of perfect execution.",
-    images: ["/assets/midnight/preview.png"],
+    images: [asset("/assets/midnight/preview.png")],
   },
 };
 
 export default function MidnightPage() {
   return (
-    <MidnightIntro videoSrc="/assets/midnight/dont_be_a_ponk.mp4">
+    <MidnightIntro videoSrc={asset("/assets/midnight/dont_be_a_ponk.mp4")}>
       <div className="min-h-screen w-full max-w-full min-w-0 overflow-x-hidden bg-black text-gray-300 ">
       <article className="w-full max-w-4xl mx-auto px-6 py-16 sm:py-24 box-border grayscale">
         <header className="mb-16">
@@ -49,7 +50,7 @@ export default function MidnightPage() {
         <section className="space-y-4 mb-16">
           <figure className="w-full  sm:mx-0 overflow-hidden">
             <img
-              src="/assets/midnight/01.jpg"
+              src={asset("/assets/midnight/01.jpg")}
               alt="Sedan a alta velocidad en la autopista Wangan de noche, Tokio"
               className="w-full h-auto  object-contain block "
             />
@@ -71,7 +72,7 @@ export default function MidnightPage() {
           </p>
           <figure className="w-full   sm:mx-0 overflow-hidden">
             <img
-              src="/assets/midnight/03.jpg"
+              src={asset("/assets/midnight/03.jpg")}
               alt="Página de revista o recorte sobre el Mid Night Club: CAR SPECIAL, texto «caution wake turbulence»"
               className="w-full h-auto  object-contain block"
             />
@@ -97,24 +98,24 @@ export default function MidnightPage() {
           </p>
           <figure className="w-full  sm:mx-0 overflow-hidden">
             <img
-              src="/assets/midnight/08.jpg"
+              src={asset("/assets/midnight/08.jpg")}
               alt="Vista desde el interior de un coche a alta velocidad en un túnel del Wangan"
               className="w-full h-auto max-w-full object-contain block"
             />
           </figure>
           <figure className="w-full  sm:mx-0 flex gap-0">
             <img
-              src="/assets/midnight/nissan-r32gtr-1.jpg"
+              src={asset("/assets/midnight/nissan-r32gtr-1.jpg")}
               alt="Nissan Skyline R32 GT-R, récord Mid Night Team 321.51 km/h"
               className="flex-1 min-w-0 w-0 object-cover block h-40 sm:h-56"
             />
             <img
-              src="/assets/midnight/Porsche-964turbo.jpg"
+              src={asset("/assets/midnight/Porsche-964turbo.jpg")}
               alt="Porsche 964 Turbo, récord Mid Night Team 332.19 km/h"
               className="flex-1 min-w-0 w-0 object-cover block h-40 sm:h-56"
             />
             <img
-              src="/assets/midnight/toyota-supra-a70.jpg"
+              src={asset("/assets/midnight/toyota-supra-a70.jpg")}
               alt="Toyota Supra A70, récord Mid Night Team 312.49 km/h"
               className="flex-1 min-w-0 w-0 object-cover block h-40 sm:h-56"
             />
@@ -134,12 +135,12 @@ export default function MidnightPage() {
           </p>
           <figure className="w-full  sm:mx-0 flex gap-0">
             <img
-              src="/assets/midnight/11.png"
+              src={asset("/assets/midnight/11.png")}
               alt="Midnight Club 3: DUB Edition — portada o pantalla del juego"
               className="flex-1 min-w-0 w-0 object-cover block h-40 sm:h-56"
             />
             <img
-              src="/assets/midnight/10.jpg"
+              src={asset("/assets/midnight/10.jpg")}
               alt="Midnight Club 3: DUB Edition — carrera callejera en el juego"
               className="flex-1 min-w-0 w-0 object-cover block h-40 sm:h-56"
             />
@@ -154,12 +155,12 @@ export default function MidnightPage() {
         <section className="space-y-6 mb-16">
           <figure className="w-full sm:mx-0 flex gap-0 mb-6">
             <img
-              src="/assets/midnight/04.jpg"
+              src={asset("/assets/midnight/04.jpg")}
               alt="Porsche wide-body tuner rosa con calcomanías Mid Night y WARM Yokohama Body Works, coche de la cultura Wangan"
               className="flex-1 min-w-0 w-0 object-cover block h-40 sm:h-56"
             />
             <img
-              src="/assets/midnight/12.png"
+              src={asset("/assets/midnight/12.png")}
               alt="Display digital: temperatura agua, 328 km/h, presión de aceite — métricas de rendimiento"
               className="flex-1 min-w-0 w-0 object-cover block h-40 sm:h-56"
             />
@@ -254,7 +255,7 @@ export default function MidnightPage() {
         <figure className="w-full flex justify-center pt-24 pb-6">
           <div className="aspect-square w-full max-w-md overflow-hidden">
             <img
-              src="/assets/midnight/giphy.gif"
+              src={asset("/assets/midnight/giphy.gif")}
               alt="Coche destapado, revelación bajo la funda"
               className="w-full h-full object-cover block"
             />
@@ -300,12 +301,12 @@ export default function MidnightPage() {
           </p>
           <figure className="w-full  sm:mx-0 flex gap-0">
             <img
-              src="/assets/midnight/09.jpg"
+              src={asset("/assets/midnight/09.jpg")}
               alt="Kazuhiko Smokey Nagata, fundador de Top Secret Japan, delante del garaje con un Nissan R32 GT-R"
               className="flex-1 min-w-0 w-0 object-cover block h-40 sm:h-56"
             />
             <img
-              src="/assets/midnight/52c938ee6116136a0dee3e9c00ff8eb0.jpg"
+              src={asset("/assets/midnight/52c938ee6116136a0dee3e9c00ff8eb0.jpg")}
               alt="Kazuhiko Smokey Nagata con un coche Top Secret / Mo Power"
               className="flex-1 min-w-0 w-0 object-cover block h-40 sm:h-56"
             />

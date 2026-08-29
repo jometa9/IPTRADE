@@ -1,5 +1,6 @@
 "use client";
 
+import { asset } from "@/lib/asset";
 type PropFirmLogosScrollProps = {
   className?: string;
 };
@@ -111,7 +112,7 @@ function LogoRow({ logos, speed, direction = "left" }: LogoRowProps) {
               className="group shrink-0 p-3"
             >
               <img
-                src={logo.src}
+                src={asset(logo.src)}
                 alt={logo.alt}
                 loading="lazy"
                 className={`${filterClass} ${

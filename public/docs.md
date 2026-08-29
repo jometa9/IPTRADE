@@ -629,7 +629,7 @@ Full local trade copying: MT4, MT5, and cTrader support, symbol translation, pre
 
 - **Instagram DM:** [@iptradecopier](https://www.instagram.com/_iptrade
 - **Founder (direct):** [joaquinmetayer@gmail.com](mailto:joaquinmetayer@gmail.com)
-- **Website:** [iptradecopier.com](https://iptradecopier.com)
+- **Website:** [IPTRADE](https://jometa9.github.io/IPTRADE)
 
 **Founder:** Joaquin Metayer — Founder — [LinkedIn](https://www.linkedin.com/in/joaquinmetayer/)
 

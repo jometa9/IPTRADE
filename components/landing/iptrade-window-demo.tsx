@@ -1189,7 +1189,7 @@ function EmptyState({
         {isInstalled ? "Connected" : isInstalling ? "Connecting..." : "Connect"}
       </div>
       <a
-        href="https://www.iptradecopier.com/documentation"
+        href="https://jometa9.github.io/IPTRADE/documentation"
         target="_blank"
         className="text-xs text-gray-400 mt-3 italic hover:text-gray-900 transition-colors"
       >
@@ -1224,7 +1224,7 @@ function InstallingState({ isInstalled }: InstallingStateProps) {
         2. Connect and start copying
       </p>
       <a
-        href="https://www.iptradecopier.com/documentation"
+        href="https://jometa9.github.io/IPTRADE/documentation"
         target="_blank"
         className="text-xs text-gray-400 mt-2 italic hover:text-gray-900 transition-colors"
       >

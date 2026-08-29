@@ -1,6 +1,7 @@
 "use client";
 
 
+import { asset } from "@/lib/asset";
 import { cn } from "@/lib/utils";
 
 interface AddAccountsPickDemoProps {
@@ -16,7 +17,7 @@ const pickConnectionRowClass =
 function CtraderIcon() {
   return (
     <img
-      src="/assets/ctrader.svg"
+      src={asset("/assets/ctrader.svg")}
       alt=""
       aria-hidden
       className="mb-4 h-5.5"
@@ -28,13 +29,13 @@ function MtExpertIcon() {
   return (
     <div className="mb-3 flex items-center gap-3 self-end">
       <img
-        src="/assets/metatrader4.png"
+        src={asset("/assets/metatrader4.png")}
         alt=""
         aria-hidden
         className="-mr-1 -mt-1 h-7"
       />
       <img
-        src="/assets/metatrader5.png"
+        src={asset("/assets/metatrader5.png")}
         alt=""
         aria-hidden
         className="-mt-1 h-7"

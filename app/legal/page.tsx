@@ -1,3 +1,4 @@
+import { asset } from "@/lib/asset";
 import { LandingHeader } from "@/components/landing/landing-header";
 import { MarkdownRenderer } from "@/components/markdown-renderer";
 import { StructuredData } from "@/components/structured-data";
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
     url: "/legal",
     type: "website",
     images: [
-      { url: "/assets/preview-home.png", width: 1200, height: 630, alt: "IPTRADE Legal" },
+      { url: asset("/assets/preview-home.png"), width: 1200, height: 630, alt: "IPTRADE Legal" },
     ],
   },
   twitter: {
@@ -136,7 +137,7 @@ export default function LegalPage() {
                   </a>
                 </p>
                 <p><strong>Address:</strong> 131 Continental Dr, Suite 305, Newark, DE 19713, United States</p>
-                <p><strong>Website:</strong> https://iptradecopier.com</p>
+                <p><strong>Website:</strong> https://jometa9.github.io/IPTRADE</p>
               </div>
             </div>
           </div>

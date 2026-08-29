@@ -1,6 +1,7 @@
 "use client";
 
 import { handleDownload } from "@/lib/download-handler";
+import { asset } from "@/lib/asset";
 import React, { useState } from "react";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
@@ -186,9 +187,12 @@ export function MarkdownRenderer({ content }: MarkdownRendererProps) {
             if (videoId) {
               return <YouTubeEmbed videoId={videoId} title={alt || undefined} />;
             }
+            // Root-relative markdown images live in /public and must carry the base path.
+            const resolvedSrc =
+              typeof src === "string" && src.startsWith("/") ? asset(src) : src;
             return (
               <img
-                src={src}
+                src={resolvedSrc}
                 alt={alt || ""}
                 className="rounded-lg w-full max-w-3xl h-auto my-4"
                 {...props}

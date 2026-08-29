@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { asset } from "@/lib/asset";
 import Link from "next/link";
 import { Fragment, useState } from "react";
 import { Check, X } from "lucide-react";
@@ -309,7 +310,7 @@ export function ComparisonTable() {
             >
               <span className="inline-flex shrink-0 mx-2 items-center justify-center">
                 <Image
-                  src={c.logoSrc}
+                  src={asset(c.logoSrc)}
                   alt={c.name}
                   width={c.logoWidth}
                   height={c.logoHeight}
