@@ -2,30 +2,75 @@
 
 import { MacOSIcon } from "@/components/icons/macos-icon";
 import { WindowsIcon } from "@/components/icons/windows-icon";
-import { handleDownload } from "@/lib/download-handler";
-import { ArrowDownToLine, BookOpen, Check } from "lucide-react";
+import { DOWNLOAD_URLS, GITHUB_REPOS } from "@/lib/download-urls";
+import { ArrowDownToLine, BookOpen, Check, Github } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-function useLatestVersion(): string | null {
-  const [version, setVersion] = useState<string | null>(null);
+interface ReleaseAsset {
+  name: string;
+  size: number;
+  browser_download_url: string;
+}
+
+interface LatestRelease {
+  version: string | null;
+  htmlUrl: string;
+  windowsUrl: string;
+  macUrl: string;
+  windowsSize: number | null;
+  macSize: number | null;
+}
+
+const DEFAULT_RELEASE: LatestRelease = {
+  version: null,
+  htmlUrl: `${GITHUB_REPOS.app}/releases/latest`,
+  windowsUrl: DOWNLOAD_URLS.windows,
+  macUrl: DOWNLOAD_URLS.mac,
+  windowsSize: null,
+  macSize: null,
+};
+
+function useLatestRelease(): LatestRelease {
+  const [release, setRelease] = useState<LatestRelease>(DEFAULT_RELEASE);
   useEffect(() => {
     let cancelled = false;
     fetch("https://api.github.com/repos/jometa9/IPTRADE-APP/releases/latest", {
       headers: { Accept: "application/vnd.github+json" },
     })
       .then((res) => (res.ok ? res.json() : null))
-      .then((data: { tag_name?: string } | null) => {
-        const v = data?.tag_name?.replace(/^v/i, "");
-        if (!cancelled && v) setVersion(v);
-      })
+      .then(
+        (
+          data: {
+            tag_name?: string;
+            html_url?: string;
+            assets?: ReleaseAsset[];
+          } | null
+        ) => {
+          if (cancelled || !data) return;
+          const assets = data.assets ?? [];
+          const win = assets.find((a) => a.name.endsWith(".exe"));
+          const mac = assets.find((a) => a.name.endsWith(".dmg"));
+          setRelease({
+            version: data.tag_name?.replace(/^v/i, "") ?? null,
+            htmlUrl: data.html_url ?? DEFAULT_RELEASE.htmlUrl,
+            windowsUrl: win?.browser_download_url ?? DEFAULT_RELEASE.windowsUrl,
+            macUrl: mac?.browser_download_url ?? DEFAULT_RELEASE.macUrl,
+            windowsSize: win?.size ?? null,
+            macSize: mac?.size ?? null,
+          });
+        }
+      )
       .catch(() => {});
     return () => {
       cancelled = true;
     };
   }, []);
-  return version;
+  return release;
 }
+
+const formatSize = (bytes: number | null) =>
+  bytes ? `${(bytes / 1024 / 1024).toFixed(0)} MB` : null;
 
 const FEATURES = [
   "Unlimited master and slave accounts",
@@ -39,13 +84,37 @@ interface DownloadButtonsProps {
 }
 
 export function DownloadButtons({ className = "" }: DownloadButtonsProps) {
-  const latestVersion = useLatestVersion();
+  const release = useLatestRelease();
+  const versionLabel = release.version
+    ? `Version ${release.version}`
+    : "Latest version";
+
+  const downloads = [
+    {
+      os: "Windows 64-bit",
+      icon: WindowsIcon,
+      href: release.windowsUrl,
+      fileName: "IPTRADE-Setup.exe",
+      description:
+        "MT4, MT5 & cTrader — full multi-platform support on Windows.",
+      size: formatSize(release.windowsSize),
+    },
+    {
+      os: "macOS ARM64",
+      icon: MacOSIcon,
+      href: release.macUrl,
+      fileName: "IPTRADE-Setup.dmg",
+      description: "cTrader — native Apple Silicon build.",
+      size: formatSize(release.macSize),
+    },
+  ];
+
   return (
     <section id="download" className={`scroll-mt-6 ${className}`}>
       <span id="prices" className="block -mt-24 pt-24" aria-hidden="true" />
       <div className="px-3 max-w-7xl mx-auto">
         <div className="mb-6 text-left">
-          <p className="text-xl text-gray-600 mb-1">Download &amp; Pricing</p>
+          <p className="text-xl text-gray-600 mb-1">Download</p>
           <h2 className="text-3xl md:text-5xl text-gray-900">
             Download IPTRADE —{" "}
             <span className="text-indigo-800">free forever.</span>
@@ -72,50 +141,53 @@ export function DownloadButtons({ className = "" }: DownloadButtonsProps) {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <button
-              type="button"
-              onClick={() => handleDownload("multi", "windows")}
-              className="group text-left rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all p-5 cursor-pointer"
-            >
-              <div className="flex items-start justify-between gap-4">
-                <div className="flex flex-col gap-3 min-w-0">
-                  <div className="flex items-center gap-3">
-                    <WindowsIcon className="h-7 w-7 text-white" />
-                    <p className="text-2xl text-white">Windows 64-bit</p>
+            {downloads.map(
+              ({ os, icon: Icon, href, fileName, description, size }) => (
+                <a
+                  key={os}
+                  href={href}
+                  download={fileName}
+                  rel="noopener noreferrer"
+                  className="group text-left rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all p-5 cursor-pointer"
+                >
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="flex flex-col gap-3 min-w-0">
+                      <div className="flex items-center gap-3">
+                        <Icon className="h-7 w-7 text-white" />
+                        <p className="text-2xl text-white">{os}</p>
+                      </div>
+                      <p className="text-sm text-gray-300">{description}</p>
+                      <p className="text-xs text-gray-400">
+                        {versionLabel} · {fileName}
+                        {size ? ` · ${size}` : ""}
+                      </p>
+                    </div>
+                    <ArrowDownToLine className="h-6 w-6 text-white shrink-0" />
                   </div>
-                  <p className="text-sm text-gray-300">
-                    MT4, MT5 & cTrader — full multi-platform support on Windows.
-                  </p>
-                  <p className="text-xs text-gray-400">
-                    {latestVersion ? `Version ${latestVersion}` : "Latest version"}
-                  </p>
-                </div>
-                <ArrowDownToLine className="h-6 w-6 text-white shrink-0" />
-              </div>
-            </button>
-
-            <button
-              type="button"
-              onClick={() => handleDownload("multi", "mac")}
-              className="group text-left rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all p-5 cursor-pointer"
-            >
-              <div className="flex items-start justify-between gap-4">
-                <div className="flex flex-col gap-3 min-w-0">
-                  <div className="flex items-center gap-3">
-                    <MacOSIcon className="h-7 w-7 text-white" />
-                    <p className="text-2xl text-white">macOS ARM64</p>
-                  </div>
-                  <p className="text-sm text-gray-300">
-                    cTrader — native Apple Silicon build.
-                  </p>
-                  <p className="text-xs text-gray-400">
-                    {latestVersion ? `Version ${latestVersion}` : "Latest version"}
-                  </p>
-                </div>
-                <ArrowDownToLine className="h-6 w-6 text-white shrink-0" />
-              </div>
-            </button>
+                </a>
+              )
+            )}
           </div>
+
+          <a
+            href={release.htmlUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center justify-between gap-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all p-5"
+          >
+            <div className="flex items-center gap-3 min-w-0">
+              <Github className="h-7 w-7 text-white shrink-0" />
+              <div className="min-w-0">
+                <p className="text-lg text-white">View all builds on GitHub</p>
+                <p className="text-xs text-gray-400">
+                  Every release asset, checksums and changelog.
+                </p>
+              </div>
+            </div>
+            <span className="text-sm text-gray-300 underline shrink-0">
+              Open repo
+            </span>
+          </a>
 
           <div className=" flex flex-col items-start sm:flex-row sm:items-center sm:justify-between gap-3">
             <Link
@@ -132,7 +204,7 @@ export function DownloadButtons({ className = "" }: DownloadButtonsProps) {
               </span>
             </Link>
             <Link
-              href="https://github.com/jometa9/IPTRADE-APP"
+              href={GITHUB_REPOS.app}
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-gray-300 hover:text-white transition-colors w-fit"

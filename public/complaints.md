@@ -10,11 +10,6 @@ We're committed to excellent service. If you have a complaint, we want to hear f
 Message the founder directly at [joaquinmetayer@gmail.com](mailto:joaquinmetayer@gmail.com).  
 **Subject:** "Complaint - [Brief Description]"
 
-### Mail
-IPTRADE COPIER LLC  
-131 Continental Dr, Suite 305  
-Newark, DE 19713, United States
-
 ---
 
 ## What to Include

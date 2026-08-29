@@ -135,7 +135,6 @@ export default function LegalPage() {
                     joaquinmetayer@gmail.com
                   </a>
                 </p>
-                <p><strong>Address:</strong> 131 Continental Dr, Suite 305, Newark, DE 19713, United States</p>
                 <p><strong>Website:</strong> https://jometa9.github.io/IPTRADE</p>
               </div>
             </div>

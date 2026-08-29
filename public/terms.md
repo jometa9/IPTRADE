@@ -1,6 +1,6 @@
 # Terms of Use
 
-These Terms of Use govern your use of IPTRADE software, operated by IPTRADE COPIER LLC.
+These Terms of Use govern your use of IPTRADE software.
 
 By using IPTRADE, you agree to these terms. If you don't agree, don't use our software.
 
@@ -79,7 +79,7 @@ You may not:
 
 ## 8. Intellectual Property
 
-All software, content, and materials are owned by IPTRADE COPIER LLC and protected by copyright, trademark, and other intellectual property laws.
+All software, content, and materials are owned by IPTRADE and protected by copyright, trademark, and other intellectual property laws.
 
 ---
 

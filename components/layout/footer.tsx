@@ -59,14 +59,6 @@ export function Footer() {
       <p className="text-sm text-gray-400 pt-2">
         Need help or have questions? Email us at joaquinmetayer@gmail.com
       </p>
-      <p className="text-sm text-gray-400 pt-2">
-        &copy; {new Date().getFullYear()} IPTRADE COPIER LLC. All rights
-        reserved.
-      </p>
-      <p className="text-sm text-gray-400 pt-2">
-        Business Address: 131 Continental Dr, Suite 305, Newark, DE 19713,
-        United States.
-      </p>
     </footer>
   );
 }

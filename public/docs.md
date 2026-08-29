@@ -39,7 +39,7 @@
 
 ## Introduction
 
-IPTRADE is trade copying software that replicates trades between multiple accounts in real time. It runs entirely on your machine—no cloud, no middleman. You get one IP for all accounts, full control, and zero exposure of your data. Built by IPTRADE COPIER LLC for traders who need reliability, speed, full control and prop-firm compliance.
+IPTRADE is trade copying software that replicates trades between multiple accounts in real time. It runs entirely on your machine—no cloud, no middleman. You get one IP for all accounts, full control, and zero exposure of your data. Built by IPTRADE for traders who need reliability, speed, full control and prop-firm compliance.
 
 ### What it does
 

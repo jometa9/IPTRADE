@@ -1,3 +1,4 @@
+import { OpenSourceSection } from "@/components/open-source-section";
 import { LandingHeader } from "@/components/landing/landing-header";
 import { IpTradeWindowDemo } from "@/components/landing/iptrade-window-demo";
 import TradingViewHeadmap from "@/components/landing/trading-view-headmap";
@@ -5,7 +6,6 @@ import { PropFirmLogosScroll } from "@/components/landing/prop-firm-logos-scroll
 import { SupportedPlatformsRow } from "@/components/landing/supported-platforms-row";
 import { PropFirmConnectionTerminal } from "@/components/landing/prop-firm-connection-terminal";
 import { PropFirmFAQSection } from "@/components/landing/prop-firm-faq-section";
-import { ComparisonTable } from "@/components/landing/comparison-table";
 import { DownloadButtons } from "@/components/landing/download-buttons";
 import { PropFirmsDownloadCTA } from "@/components/landing/prop-firms-download-cta";
 import { FounderCard } from "@/components/landing/founder-card";
@@ -289,7 +289,7 @@ export default function PropFirmsLandingPage() {
         <DownloadButtons />
       </div>
 
-      <ComparisonTable />
+      <OpenSourceSection />
 
       <section className="pt-24">
         <div className="max-w-7xl mx-auto px-3 grid grid-cols-1 md:grid-cols-6 md:gap-3">

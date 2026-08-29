@@ -1,7 +1,7 @@
 "use client";
 
+import { OpenSourceSection } from "@/components/open-source-section";
 import { CallToActionSection } from "@/components/landing/call-to-action-section";
-import { ComparisonTable } from "@/components/landing/comparison-table";
 import { DownloadButtons } from "@/components/landing/download-buttons";
 import { FAQSection } from "@/components/landing/faq-section";
 import { FeaturesSection } from "@/components/landing/features-section";
@@ -136,7 +136,7 @@ export default function HomePage() {
           <DownloadButtons />
         </div>
 
-        <ComparisonTable />
+        <OpenSourceSection />
 
         <div className="max-w-7xl mx-auto px-3 grid grid-cols-1 md:grid-cols-6 md:gap-3 pt-24">
           <div className="md:col-span-4 pb-6">

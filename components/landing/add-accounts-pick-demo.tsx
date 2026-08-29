@@ -56,12 +56,12 @@ export function AddAccountsPickDemo({
         </p>
       </div>
       <div className={cn(pickGroupClass, !isWindows ? "mb-16" : "mb-6")}>
-        <div className="flex flex-col md:flex-row">
+        <div className="flex flex-col">
           <button
             type="button"
             className={cn(
               pickConnectionRowClass,
-              "border-b border-gray-200 md:border-r md:border-b-0"
+              "border-b border-gray-200"
             )}
             aria-label="Continue with cTrader"
           >

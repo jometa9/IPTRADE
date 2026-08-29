@@ -1,6 +1,6 @@
 # Privacy Policy
 
-This Privacy Policy explains how IPTRADE COPIER LLC collects, uses, and protects your information.
+This Privacy Policy explains how IPTRADE collects, uses, and protects your information.
 
 IPTRADE Multi is provided **100% free of charge**. We do not process payments or store any billing information.
 

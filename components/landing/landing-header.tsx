@@ -6,7 +6,7 @@ import { useCallback, type MouseEvent } from "react";
 
 const navigationLinks = [
   { href: "/#features", label: "Features" },
-  { href: "/#download", label: "Pricing" },
+  { href: "/#download", label: "Download" },
   { href: "/documentation", label: "Docs" },
 ];
 
