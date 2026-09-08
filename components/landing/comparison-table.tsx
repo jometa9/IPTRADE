@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { asset } from "@/lib/asset";
-import Link from "next/link";
 import { Fragment, useState } from "react";
 import { Check, X } from "lucide-react";
 
@@ -293,14 +292,9 @@ export function ComparisonTable() {
           <div className="px-3 py-4 flex items-center justify-center text-center bg-green-800 border-x border-b border-green-900">
             <span className="font-bold text-lg text-white mx-1">IPTRADE</span>
           </div>
-          <Link
-            href="https://5mtrader.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-3 py-4 flex flex-col items-center justify-center text-center bg-black border-r border-b border-neutral-800 hover:bg-neutral-900 transition-colors"
-          >
+          <div className="px-3 py-4 flex flex-col items-center justify-center text-center bg-black border-r border-b border-neutral-800">
             <span className="font-bold text-lg text-white mx-1 leading-none">5MTrader</span>
-          </Link>
+          </div>
           {COMPETITORS.map((c, idx) => (
             <div
               key={c.id}
