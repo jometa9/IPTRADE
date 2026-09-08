@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { asset } from "@/lib/asset";
-import Link from "next/link";
 import { Fragment, useState } from "react";
 import { Check, X } from "lucide-react";
 
@@ -48,7 +47,6 @@ type CompetitorId = (typeof COMPETITORS)[number]["id"];
 interface ComparisonRow {
   feature: string;
   iptrade: CellValue;
-  fivemtrader: CellValue;
   competitors: Record<CompetitorId, CellValue>;
 }
 
@@ -56,7 +54,6 @@ const comparisonData: ComparisonRow[] = [
   {
     feature: "Cost per account / mo",
     iptrade: "Free",
-    fivemtrader: "$5/mo",
     competitors: {
       tradersConnect: "$10/mo",
       duplikium: "€9/mo",
@@ -67,7 +64,6 @@ const comparisonData: ComparisonRow[] = [
   {
     feature: "Unlimited-account plan",
     iptrade: "yes",
-    fivemtrader: "yes",
     competitors: {
       tradersConnect: "no",
       duplikium: "no",
@@ -78,7 +74,6 @@ const comparisonData: ComparisonRow[] = [
   {
     feature: "Single IP address",
     iptrade: "yes",
-    fivemtrader: "varies",
     competitors: {
       tradersConnect: "no",
       duplikium: "no",
@@ -89,7 +84,6 @@ const comparisonData: ComparisonRow[] = [
   {
     feature: "Runs locally",
     iptrade: "yes",
-    fivemtrader: "no",
     competitors: {
       tradersConnect: "no",
       duplikium: "no",
@@ -100,7 +94,6 @@ const comparisonData: ComparisonRow[] = [
   {
     feature: "Zero data sent externally",
     iptrade: "yes",
-    fivemtrader: "no",
     competitors: {
       tradersConnect: "no",
       duplikium: "no",
@@ -111,7 +104,6 @@ const comparisonData: ComparisonRow[] = [
   {
     feature: "Trade calendar (PnL heatmap)",
     iptrade: "yes",
-    fivemtrader: "yes",
     competitors: {
       tradersConnect: "no",
       duplikium: "no",
@@ -122,7 +114,6 @@ const comparisonData: ComparisonRow[] = [
   {
     feature: "Analytics & history (no cloud)",
     iptrade: "yes",
-    fivemtrader: "no",
     competitors: {
       tradersConnect: "no",
       duplikium: "no",
@@ -133,7 +124,6 @@ const comparisonData: ComparisonRow[] = [
   {
     feature: "MT4, MT5 & cTrader",
     iptrade: "yes",
-    fivemtrader: "MT5 & cTrader",
     competitors: {
       tradersConnect: "yes",
       duplikium: "yes",
@@ -144,7 +134,6 @@ const comparisonData: ComparisonRow[] = [
   {
     feature: "macOS support",
     iptrade: "yes",
-    fivemtrader: "yes",
     competitors: {
       tradersConnect: "varies",
       duplikium: "varies",
@@ -155,7 +144,6 @@ const comparisonData: ComparisonRow[] = [
   {
     feature: "Prop firm compatible",
     iptrade: "yes",
-    fivemtrader: "yes",
     competitors: {
       tradersConnect: "yes",
       duplikium: "yes",
@@ -166,7 +154,6 @@ const comparisonData: ComparisonRow[] = [
   {
     feature: "No VPS needed",
     iptrade: "yes",
-    fivemtrader: "yes",
     competitors: {
       tradersConnect: "yes",
       duplikium: "yes",
@@ -177,7 +164,6 @@ const comparisonData: ComparisonRow[] = [
   {
     feature: "Dedicated private server",
     iptrade: "Local",
-    fivemtrader: "yes",
     competitors: {
       tradersConnect: "no",
       duplikium: "no",
@@ -205,19 +191,6 @@ function IptradeCellValue({ value }: { value: string }) {
     );
   }
   return <span className="text-sm text-white font-semibold">{value}</span>;
-}
-
-function FiveMTraderCellValue({ value }: { value: string }) {
-  if (value === "yes") {
-    return <Check className="h-4 w-4 text-white mx-auto" strokeWidth={2.5} />;
-  }
-  if (value === "no") {
-    return <X className="h-4 w-4 text-white/50 mx-auto" strokeWidth={2.5} />;
-  }
-  if (value === "varies") {
-    return <span className="text-sm text-white/90 font-semibold">Varies</span>;
-  }
-  return <span className="text-xs text-white font-semibold leading-snug tabular-nums">{value}</span>;
 }
 
 function CompetitorCellValue({ value }: { value: string }) {
@@ -257,7 +230,7 @@ function CompetitorCellValue({ value }: { value: string }) {
 }
 
 const GRID_COLS =
-  "grid-cols-[minmax(11rem,1.35fr)_minmax(max-content,1fr)_minmax(max-content,1fr)_repeat(4,minmax(max-content,1fr))]";
+  "grid-cols-[minmax(11rem,1.35fr)_minmax(max-content,1fr)_repeat(4,minmax(max-content,1fr))]";
 
 function rowLeaveHandler(
   i: number,
@@ -293,14 +266,6 @@ export function ComparisonTable() {
           <div className="px-3 py-4 flex items-center justify-center text-center bg-green-800 border-x border-b border-green-900">
             <span className="font-bold text-lg text-white mx-1">IPTRADE</span>
           </div>
-          <Link
-            href="https://5mtrader.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-3 py-4 flex flex-col items-center justify-center text-center bg-black border-r border-b border-neutral-800 hover:bg-neutral-900 transition-colors"
-          >
-            <span className="font-bold text-lg text-white mx-1 leading-none">5MTrader</span>
-          </Link>
           {COMPETITORS.map((c, idx) => (
             <div
               key={c.id}
@@ -340,8 +305,6 @@ export function ComparisonTable() {
               : isWhiteStripe
                 ? "border-b border-green-900"
                 : "border-b border-green-900";
-            const fivemBgBorder = "bg-black border-r border-neutral-800";
-            const bottomRuleBlue = isLastRow ? "" : "border-b border-neutral-800";
             const rowProps = {
               "data-comparison-row": i,
               onMouseEnter: () => setHoveredRow(i),
@@ -361,12 +324,6 @@ export function ComparisonTable() {
                   className={`min-w-0 flex items-center justify-center px-3 py-3.5 text-center transition-colors duration-150 ${iptradeBgBorder} ${bottomRuleGreen}`}
                 >
                   <IptradeCellValue value={row.iptrade} />
-                </div>
-                <div
-                  {...rowProps}
-                  className={`min-w-0 flex items-center justify-center px-3 py-3.5 text-center transition-colors duration-150 ${fivemBgBorder} ${bottomRuleBlue}`}
-                >
-                  <FiveMTraderCellValue value={row.fivemtrader} />
                 </div>
                 {COMPETITORS.map((c, idx) => (
                   <div
